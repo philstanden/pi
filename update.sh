@@ -3,7 +3,10 @@
 GIT_PULL="$(git pull)"
 
 if [ "${GIT_PULL}" == "Already up-to-date." ]; then
-         echo "${GIT_PULL}"
+	echo "${GIT_PULL}"
 else
-         mvn clean wildfly-swarm:run
+	PID=`cat .pid`
+	kill "${PID}"
+	mvn clean wildfly-swarm:run &
+	echo $! > .pid
 fi
