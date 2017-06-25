@@ -15,6 +15,6 @@ public class TestRest {
 
     @GET
     public Map<String, String> test(){
-        return Collections.singletonMap("Hi", "pi");
+        return Collections.singletonMap("Hi", "cron");
     }
 }
